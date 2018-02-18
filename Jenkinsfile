@@ -4,9 +4,10 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+		chmod +x build-image.sh
                 echo 'Building Docker Image..'
 		checkout scm
-		sh './build-image.sh'
+		sh 'build-image.sh'
 		echo 'Pushing Image to Registry/Repo'
 		sh './push-image.sh'
 		echo 'Creating Application Deployment'
