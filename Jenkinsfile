@@ -6,7 +6,7 @@ pipeline {
             steps {
                 echo 'Building Docker Image..'
 		checkout scm
-                sh "chmod +x build-image.sh"
+                sh "chmod +x ./BuildScripts/build-image.sh"
 		sh '''
 		   ./BuildScripts/build-image.sh
 		'''
