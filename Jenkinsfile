@@ -6,7 +6,7 @@ pipeline {
             steps {
                 echo 'Building Docker Image..'
 		checkout scm
-		sh ('/bs/build-image.sh')
+		sh './bs/build-image.sh'
 		echo 'Pushing Image to Registry/Repo'
 		sh '''
 		  ./bs/push-image.sh
