@@ -7,11 +7,11 @@ pipeline {
                 echo 'Building Docker Image..'
 		checkout scm
                 sh "chmod +x build-image.sh"
-		sh 'build-image.sh'
+		sh "build-image.sh"
 		echo 'Pushing Image to Registry/Repo'
-		sh 'push-image.sh'
+		sh "push-image.sh"
 		echo 'Creating Application Deployment'
-		sh '/kube manifest files/init.sh'
+		sh "/kube manifest files/init.sh"
             }
         }
         stage('Test') {
