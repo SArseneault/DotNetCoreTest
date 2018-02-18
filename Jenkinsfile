@@ -8,12 +8,16 @@ pipeline {
 		checkout scm
                 sh "chmod +x build-image.sh"
 		sh '''
-		   build-image.sh
+		   ./BuildScripts/build-image.sh
 		'''
 		echo 'Pushing Image to Registry/Repo'
-		sh "push-image.sh"
+		sh '''
+		  ./BuildScripts/push-image.sh
+		'''
 		echo 'Creating Application Deployment'
-		sh "/kube manifest files/init.sh"
+		sh '''
+                  ./kube manifest files/init.sh
+                '''
             }
         }
         stage('Test') {
