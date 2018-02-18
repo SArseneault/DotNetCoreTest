@@ -7,7 +7,6 @@ pipeline {
                 echo 'Building Docker Image..'
 		checkout scm
                 sh '''
-			chmod +x ./BuildScripts/build-image.sh
 			./BuildScripts/build-image.sh
 		'''
 		echo 'Pushing Image to Registry/Repo'
