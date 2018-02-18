@@ -6,7 +6,7 @@ pipeline {
             steps {
                 echo 'Building Docker Image..'
 		checkout scm
-                sh "./bs/build-image.sh"
+		sh $WORKSPACE/build-image.sh -label $JOB_NAME -$BUILD_NUMBER -java_home $JAVA_HOME
 
 		echo 'Pushing Image to Registry/Repo'
 		sh '''
