@@ -11,9 +11,14 @@ pipeline {
         sh 'sh \'./bs/push-image.sh\''
       }
     }
-    stage('Deploy') {
+    stage('Deploy App') {
       steps {
-        sh 'sh \'./ds/init.sh\''
+        sh 'sh \'./ds/appdeploy.sh\''
+      }
+    }
+    stage('Deploy Ingress') {
+      steps {
+        sh 'sh \'./ds/ingressdeploy.sh\''
       }
     }
   }
