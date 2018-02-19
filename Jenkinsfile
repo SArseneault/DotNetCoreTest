@@ -13,7 +13,7 @@ pipeline {
     }
     stage('Deploy') {
       steps {
-        sh 'sh \'./kube manifest files/init.sh\''
+        sh 'sh \'./ds/init.sh\''
       }
     }
   }
